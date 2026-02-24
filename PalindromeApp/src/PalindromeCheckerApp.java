@@ -2,14 +2,14 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
 
-public class PalindromeCheckerApp {
+class PalindromeCheckerApp {
     public static void main(String[] args) {
         String input = "racecar";
 
         Queue<Character> queue = new LinkedList<>();
         Stack<Character> stack = new Stack<>();
 
-        for (int i = 0; i < input.length(); i++) {
+        for (int i = 0; i < input.length(); i++ ) {
             char ch = input.charAt(i);
             queue.add(ch);
             stack.push(ch);
