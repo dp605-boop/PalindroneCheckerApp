@@ -1,22 +1,20 @@
+import java.util.Stack;
+
 public class PalindromeCheckerApp {
     public static void main(String[] args) {
-        String input = "radar";
-        char[] chars = input.toCharArray();
+        String input = "madam";
+        Stack<Character> stack = new Stack<>();
 
-        int left = 0;
-        int right = chars.length - 1;
-        boolean isPalindrome = true;
-
-        while (left < right) {
-            if (chars[left] != chars[right]) {
-                isPalindrome = false;
-                break;
-            }
-            left++;
-            right--;
+        for (int i = 0; i < input.length(); i++) {
+            stack.push(input.charAt(i));
         }
 
-        if (isPalindrome) {
+        String reversed = "";
+        while (!stack.isEmpty()) {
+            reversed += stack.pop();
+        }
+
+        if (input.equals(reversed)) {
             System.out.println(input + " is a palindrome.");
         } else {
             System.out.println(input + " is not a palindrome.");
