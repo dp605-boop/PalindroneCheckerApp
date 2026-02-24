@@ -1,23 +1,24 @@
-import java.util.Stack;
+import java.util.Scanner;
 
 public class PalindromeCheckerApp {
+
     public static void main(String[] args) {
-        String input = "madam";
-        Stack<Character> stack = new Stack<>();
+        Scanner scanner = new Scanner(System.in);
+        String input = scanner.nextLine();
 
-        for (int i = 0; i < input.length(); i++) {
-            stack.push(input.charAt(i));
+        String normalized = input.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
+
+        boolean isPalindrome = true;
+        for (int i = 0; i < normalized.length() / 2; i++) {
+            if (normalized.charAt(i) != normalized.charAt(normalized.length() - 1 - i)) {
+                isPalindrome = false;
+                break;
+            }
         }
 
-        String reversed = "";
-        while (!stack.isEmpty()) {
-            reversed += stack.pop();
-        }
+        System.out.println("Input : " + input);
+        System.out.println("Is Palindrome? : " + isPalindrome);
 
-        if (input.equals(reversed)) {
-            System.out.println(input + " is a palindrome.");
-        } else {
-            System.out.println(input + " is not a palindrome.");
-        }
+        scanner.close();
     }
 }
