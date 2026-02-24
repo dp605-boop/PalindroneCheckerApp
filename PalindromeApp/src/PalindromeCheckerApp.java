@@ -13,6 +13,8 @@ class PalindromeCheckerApp {
             char ch = input.charAt(i);
             queue.add(ch);
             stack.push(ch);
+
+
         }
 
         boolean isPalindrome = true;
