@@ -1,20 +1,25 @@
 public class PalindromeCheckerApp {
+    public static void main(String[] args) {
+        String input = "radar";
+        char[] chars = input.toCharArray();
 
-        public static void main(String[] args) {
-            String input = "madam";
-            boolean isPalindrome = true;
+        int left = 0;
+        int right = chars.length - 1;
+        boolean isPalindrome = true;
 
-            for (int i = 0; i < input.length() / 2; i++) {
-                if (input.charAt(i) != input.charAt(input.length() - 1 - i)) {
-                    isPalindrome = false;
-                    break;
-                }
+        while (left < right) {
+            if (chars[left] != chars[right]) {
+                isPalindrome = false;
+                break;
             }
+            left++;
+            right--;
+        }
 
-            if (isPalindrome) {
-                System.out.println(input + " is a palindrome.");
-            } else {
-                System.out.println(input + " is not a palindrome.");
-            }
+        if (isPalindrome) {
+            System.out.println(input + " is a palindrome.");
+        } else {
+            System.out.println(input + " is not a palindrome.");
         }
     }
+}
